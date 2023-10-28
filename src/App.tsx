@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MyModal from "./components/MyModal";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  // STATE
+  const [isOpen, setOpen] = useState(Boolean);
+
+  // EVENT
+  const handleClick = () => {
+    setOpen(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}>모달 열기</button>
+      <MyModal isOpen={isOpen} />
     </div>
   );
-}
+};
 
 export default App;
